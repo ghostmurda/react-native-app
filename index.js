@@ -3,7 +3,7 @@ import * as Font from 'expo-font';
 import React, {useEffect, useState} from 'react';
 import Navigator from "react-native-easy-router";
 import {authScreenName} from "./src/screens/constants";
-import {AuthScreen, ChatsScreen} from "./src/screens/screens";
+import {AuthScreen, ChatsScreen, SignUpScreen} from "./src/screens/screens";
 
 export const Application = () => {
     const [loaded, setLoaded] = useState(false);
@@ -21,7 +21,7 @@ export const Application = () => {
     return (
         <>
             {loaded ?
-                <Navigator screens={{AuthScreen, ChatsScreen}} initialStack={authScreenName}/>
+                <Navigator screens={{AuthScreen, ChatsScreen, SignUpScreen}} initialStack={authScreenName}/>
                 : <AppLoading/>
             }
         </>

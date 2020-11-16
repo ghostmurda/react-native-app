@@ -1,9 +1,9 @@
-import React from 'react';
-import {Form, Item, Label, Input, Button, Text} from "native-base";
-import {chatsScreenName, signUpScreenName} from "../../screens/constants";
+import {Button, Form, Input, Item, Label, Text, Picker, Icon} from "native-base";
+import React from "react";
+import {chatsScreenName} from "../../screens/constants";
 
-export default function AuthorizationPage(props) {
-    return (
+export default function SignUpPage (props){
+    return(
         <Form style={{
             backgroundColor: 'white',
             marginTop: 32,
@@ -21,10 +21,18 @@ export default function AuthorizationPage(props) {
             <Text style={{
                 textAlign: 'center',
             }}>
-                🛸 Welcome to this app 🚀
+                👨🏻‍💻 Please fill this form to create an account 👩🏻‍💻
             </Text>
             <Item floatingLabel>
-                <Label>ID or email</Label>
+                <Label>Name</Label>
+                <Input/>
+            </Item>
+            <Item floatingLabel>
+                <Label>ID</Label>
+                <Input/>
+            </Item>
+            <Item floatingLabel>
+                <Label>Email</Label>
                 <Input/>
             </Item>
             <Item floatingLabel>
@@ -35,22 +43,13 @@ export default function AuthorizationPage(props) {
                     bordered
                     style={{
                         marginTop: 32,
-                        borderRadius: 20
+                        borderRadius: 20,
+                        marginBottom: 16
                     }}
                     onPress={() => props.navigator.push(chatsScreenName)}
             >
-                <Text>Sign in</Text>
+                <Text>Sign up</Text>
             </Button>
-            <Text style={{
-                    textAlign: "center",
-                    marginTop: 16,
-                    textDecorationLine: 'underline',
-                    marginBottom: 4
-                }}
-                  onPress={() => props.navigator.push(signUpScreenName)}
-            >
-                or register
-            </Text>
         </Form>
     );
 }
