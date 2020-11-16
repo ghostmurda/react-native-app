@@ -1,0 +1,19 @@
+{
+  "name": "chat",
+  "displayName": "chat",
+  "expo": {
+    "name": "chat",
+    "slug": "chat",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "web": {
+      "build": {
+        "babel": {
+          "include": ["react-router-native"]
+        }
+      }
+    }
+  }
+}
