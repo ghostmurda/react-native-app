@@ -1,7 +1,8 @@
 import DefaultPage from "../components/DefaultPage";
-import AuthorizationPage from "../components/content/AuthorizationPage";
+import AuthorizationPage from "../components/pages/AuthorizationPage";
 import {Text} from "native-base";
 import React from "react";
+import ChatsListPage from "../components/pages/ChatsListPage";
 
 export const AuthScreen = ({navigator}) => {
     return (
@@ -20,7 +21,7 @@ export const ChatsScreen = ({navigator}) => {
         <DefaultPage
             pageTitle="Chats"
             isFooter={true}
-            contentPage={<Text>Test</Text>}
+            contentPage={<ChatsListPage />}
             isContentHasNav={false}
             navigator={navigator}
         />
