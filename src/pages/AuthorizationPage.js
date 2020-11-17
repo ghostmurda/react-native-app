@@ -3,15 +3,36 @@ import {Form, Item, Label, Input, Button, Text} from "native-base";
 import {chatsScreenName, signUpScreenName} from "../screens/constants";
 import * as Google from "expo-google-app-auth";
 import {androidOAuthKey} from '../../config';
+import {connect} from "react-redux";
+import {setAuthCreator, setUserInfoCreator} from "../store/auth/actions";
 
-export default function AuthorizationPage(props) {
+const mapStateToProps = (state) => (
+    {
+        auth: state.authState.auth,
+        userInfo: state.authState.userInfo
+    }
+)
+
+const mapDispatchToProps = (dispatch) => (
+    {
+        setAuth: (payload) => dispatch(setAuthCreator(payload)),
+        setUserInfo: (payload) => dispatch(setUserInfoCreator(payload))
+    }
+)
+
+function AuthorizationPage(props) {
     const googleSignIn = async () => {
         const { type, accessToken, user } = await Google.logInAsync({
             androidClientId: androidOAuthKey,
         });
 
         if (type === 'success') {
-            alert(user.name);
+            props.setAuth(true);
+            props.setUserInfo({
+                name: user.name,
+                photoUrl: user.photoUrl,
+                accessToken
+            });
         }
     }
 
@@ -56,3 +77,5 @@ export default function AuthorizationPage(props) {
         </Form>
     );
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthorizationPage);
