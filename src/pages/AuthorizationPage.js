@@ -1,8 +1,21 @@
 import React from 'react';
 import {Form, Item, Label, Input, Button, Text} from "native-base";
 import {chatsScreenName, signUpScreenName} from "../screens/constants";
+import * as Google from "expo-google-app-auth";
+import {androidOAuthKey} from '../../config';
 
 export default function AuthorizationPage(props) {
+    const googleSignIn = async () => {
+        const { type, accessToken, user } = await Google.logInAsync({
+            androidClientId: androidOAuthKey,
+        });
+
+        if (type === 'success') {
+            /* `accessToken` is now valid and can be used to get data from the Google API with HTTP requests */
+            alert(user.name);
+        }
+    }
+
     return (
         <Form style={{
             backgroundColor: 'white',
@@ -37,7 +50,7 @@ export default function AuthorizationPage(props) {
                         marginTop: 32,
                         borderRadius: 20
                     }}
-                    onPress={() => props.navigator.push(chatsScreenName)}
+                    onPress={() => googleSignIn()}//props.navigator.push(chatsScreenName)}
             >
                 <Text>Sign in</Text>
             </Button>

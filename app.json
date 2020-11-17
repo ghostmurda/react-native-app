@@ -11,9 +11,14 @@
     "web": {
       "build": {
         "babel": {
-          "include": ["react-router-native"]
+          "include": [
+            "react-router-native"
+          ]
         }
       }
+    },
+    "android": {
+      "package": "com.ghostmurda.chat"
     }
   }
 }
