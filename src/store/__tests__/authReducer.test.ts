@@ -1,11 +1,15 @@
-import {AuthActionTypes, IAuthState} from "../auth/types";
+import {AuthActionTypes, IAuthState, IUserInfo} from "../auth/types";
 import {authReducer} from "../auth/reducer";
-import {setAuthCreator, setNameCreator, toggleLoaderCreator} from "../auth/actions";
+import {setAuthCreator, setUserInfoCreator, toggleLoaderCreator} from "../auth/actions";
 
 const initialState: IAuthState = {
     auth: false,
-    name: null,
-    isLoading: false
+    isLoading: false,
+    userInfo: {
+        name: null,
+        photoUrl: null,
+        accessToken: null
+    }
 }
 
 let newState = (state: IAuthState, action: AuthActionTypes) => {
@@ -14,9 +18,13 @@ let newState = (state: IAuthState, action: AuthActionTypes) => {
 
 describe('auth reducer', () => {
     test('set name', () => {
-        const payload = 'Test name';
-        const action = setNameCreator(payload);
-        expect(newState(initialState, action).name).toBe(payload);
+        const payload: IUserInfo = {
+            name: 'Test name',
+            photoUrl: 'test',
+            accessToken: 'test'
+        };
+        const action = setUserInfoCreator(payload);
+        expect(newState(initialState, action).userInfo).toStrictEqual(payload);
     });
 
     test('set auth true', () => {

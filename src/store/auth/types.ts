@@ -1,11 +1,17 @@
 export const TOGGLE_LOADER = 'auth/TOGGLE_LOADER';
 export const SET_AUTH = 'auth/SET_AUTH';
-export const SET_NAME = 'auth/SET_NAME';
+export const SET_USER_INFO = 'auth/SET_USER_INFO';
+
+export interface IUserInfo{
+    name: string | null;
+    photoUrl: string | null;
+    accessToken: string | null;
+}
 
 export interface IAuthState{
     auth: boolean;
-    name: string | null;
     isLoading: boolean;
+    userInfo: IUserInfo;
 }
 
 interface IToggleLoaderAction{
@@ -13,9 +19,9 @@ interface IToggleLoaderAction{
     payload: boolean;
 }
 
-interface ISetNameAction{
-    type: typeof SET_NAME;
-    payload: string;
+interface ISetUserInfoAction{
+    type: typeof SET_USER_INFO;
+    payload: IUserInfo;
 }
 
 interface ISetAuthAction{
@@ -25,5 +31,5 @@ interface ISetAuthAction{
 
 export type AuthActionTypes =
     IToggleLoaderAction |
-    ISetNameAction |
+    ISetUserInfoAction |
     ISetAuthAction;

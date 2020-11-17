@@ -1,9 +1,13 @@
-import {AuthActionTypes, IAuthState, SET_AUTH, SET_NAME, TOGGLE_LOADER} from "./types";
+import {AuthActionTypes, IAuthState, SET_AUTH, SET_USER_INFO, TOGGLE_LOADER} from "./types";
 
 const initialState: IAuthState = {
     auth: false,
-    name: null,
-    isLoading: false
+    isLoading: false,
+    userInfo: {
+        name: null,
+        photoUrl: null,
+        accessToken: null
+    }
 }
 
 export const authReducer = (state = initialState, action: AuthActionTypes): IAuthState => {
@@ -14,8 +18,8 @@ export const authReducer = (state = initialState, action: AuthActionTypes): IAut
         case SET_AUTH:{
             return {...state, auth: action.payload}
         }
-        case SET_NAME:{
-            return {...state, name: action.payload}
+        case SET_USER_INFO:{
+            return {...state, userInfo: action.payload}
         }
         default:
             return state;

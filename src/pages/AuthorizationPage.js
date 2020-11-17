@@ -11,7 +11,6 @@ export default function AuthorizationPage(props) {
         });
 
         if (type === 'success') {
-            /* `accessToken` is now valid and can be used to get data from the Google API with HTTP requests */
             alert(user.name);
         }
     }
@@ -52,18 +51,8 @@ export default function AuthorizationPage(props) {
                     }}
                     onPress={() => googleSignIn()}//props.navigator.push(chatsScreenName)}
             >
-                <Text>Sign in</Text>
+                <Text>Sign in with Google</Text>
             </Button>
-            <Text style={{
-                    textAlign: "center",
-                    marginTop: 16,
-                    textDecorationLine: 'underline',
-                    marginBottom: 4
-                }}
-                  onPress={() => props.navigator.push(signUpScreenName)}
-            >
-                or register
-            </Text>
         </Form>
     );
 }

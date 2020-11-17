@@ -1,4 +1,4 @@
-import {AuthActionTypes, SET_AUTH, SET_NAME, TOGGLE_LOADER} from "./types";
+import {AuthActionTypes, IUserInfo, SET_AUTH, SET_USER_INFO, TOGGLE_LOADER} from "./types";
 
 export const toggleLoaderCreator = (payload: boolean): AuthActionTypes => {
     return {
@@ -14,9 +14,9 @@ export const setAuthCreator = (payload: boolean): AuthActionTypes => {
     }
 }
 
-export const setNameCreator = (payload: string): AuthActionTypes => {
+export const setUserInfoCreator = (payload: IUserInfo): AuthActionTypes => {
     return {
-        type: SET_NAME,
+        type: SET_USER_INFO,
         payload
     }
 }
