@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, Item, Label, Input, Button, Text} from "native-base";
-import {chatsScreenName, signUpScreenName} from "../../screens/constants";
+import {chatsScreenName, signUpScreenName} from "../screens/constants";
 
 export default function AuthorizationPage(props) {
     return (

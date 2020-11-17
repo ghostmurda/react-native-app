@@ -1,6 +1,6 @@
 import {Button, Form, Input, Item, Label, Text, Picker, Icon} from "native-base";
 import React from "react";
-import {chatsScreenName} from "../../screens/constants";
+import {chatsScreenName} from "../screens/constants";
 
 export default function SignUpPage (props){
     return(

@@ -1,8 +1,8 @@
 import DefaultPage from "../components/DefaultPage";
-import AuthorizationPage from "../components/pages/AuthorizationPage";
+import AuthorizationPage from "../pages/AuthorizationPage";
 import React from "react";
-import ChatsListPage from "../components/pages/ChatsListPage";
-import SignUpPage from "../components/pages/SignUpPage";
+import ChatsListPage from "../pages/ChatsListPage";
+import SignUpPage from "../pages/SignUpPage";
 
 export const AuthScreen = ({navigator}) => {
     return (
