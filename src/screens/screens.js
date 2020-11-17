@@ -3,7 +3,6 @@ import AuthorizationPage from "../pages/AuthorizationPage";
 import React from "react";
 import ChatsListPage from "../pages/ChatsListPage";
 import SignUpPage from "../pages/SignUpPage";
-import OnBoardingPage from "../pages/OnBoardingPage";
 
 export const AuthScreen = ({navigator}) => {
     return (
@@ -35,18 +34,6 @@ export const SignUpScreen = ({navigator}) => {
             pageTitle="Sign up"
             isFooter={false}
             contentPage={<SignUpPage />}
-            isContentHasNav={true}
-            navigator={navigator}
-        />
-    );
-}
-
-export const OnBoardingScreen = ({navigator}) => {
-    return (
-        <DefaultPage
-            pageTitle="Welcome"
-            isFooter={false}
-            contentPage={<OnBoardingPage />}
             isContentHasNav={true}
             navigator={navigator}
         />

@@ -2,8 +2,8 @@ import {AppLoading, registerRootComponent} from 'expo';
 import * as Font from 'expo-font';
 import React, {useEffect, useState} from 'react';
 import Navigator from "react-native-easy-router";
-import {authScreenName, onBoardingScreenName} from "./src/screens/constants";
-import {AuthScreen, ChatsScreen, SignUpScreen, OnBoardingScreen} from "./src/screens/screens";
+import {authScreenName} from "./src/screens/constants";
+import {AuthScreen, ChatsScreen, SignUpScreen} from "./src/screens/screens";
 
 export const Application = () => {
     const [loaded, setLoaded] = useState(false);
@@ -21,7 +21,7 @@ export const Application = () => {
     return (
         <>
             {loaded ?
-                <Navigator screens={{AuthScreen, ChatsScreen, SignUpScreen, OnBoardingScreen}} initialStack={onBoardingScreenName}/>
+                <Navigator screens={{AuthScreen, ChatsScreen, SignUpScreen}} initialStack={authScreenName}/>
                 : <AppLoading/>
             }
         </>
