@@ -31,7 +31,8 @@ function AuthorizationPage(props) {
             props.setUserInfo({
                 name: user.name,
                 photoUrl: user.photoUrl,
-                accessToken
+                accessToken,
+                email: user.email
             });
         }
     }

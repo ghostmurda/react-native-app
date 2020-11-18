@@ -8,7 +8,8 @@ const initialState: IAuthState = {
     userInfo: {
         name: null,
         photoUrl: null,
-        accessToken: null
+        accessToken: null,
+        email: null
     }
 }
 
@@ -17,11 +18,12 @@ let newState = (state: IAuthState, action: AuthActionTypes) => {
 }
 
 describe('auth reducer', () => {
-    test('set name', () => {
+    test('set user info', () => {
         const payload: IUserInfo = {
             name: 'Test name',
             photoUrl: 'test',
-            accessToken: 'test'
+            accessToken: 'test',
+            email: 'test@gmail.com'
         };
         const action = setUserInfoCreator(payload);
         expect(newState(initialState, action).userInfo).toStrictEqual(payload);

@@ -6,6 +6,7 @@ export interface IUserInfo{
     name: string | null;
     photoUrl: string | null;
     accessToken: string | null;
+    email: string | null;
 }
 
 export interface IAuthState{

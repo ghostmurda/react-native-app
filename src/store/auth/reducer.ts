@@ -6,7 +6,8 @@ const initialState: IAuthState = {
     userInfo: {
         name: null,
         photoUrl: null,
-        accessToken: null
+        accessToken: null,
+        email: null
     }
 }
 
