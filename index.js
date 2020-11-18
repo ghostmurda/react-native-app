@@ -3,7 +3,7 @@ import * as Font from 'expo-font';
 import React, {useEffect, useState} from 'react';
 import Navigator from "react-native-easy-router";
 import {authScreenName} from "./src/screens/constants";
-import {AuthScreen, ChatsScreen, SignUpScreen} from "./src/screens/screens";
+import {AuthScreen, ChatsScreen, HomeScreen, SignUpScreen} from "./src/screens/screens";
 import store from './src/store/store';
 import {Provider} from "react-redux";
 
@@ -23,7 +23,7 @@ export const Application = () => {
     return (
         <Provider store={store}>
             {loaded ?
-                <Navigator screens={{AuthScreen, ChatsScreen, SignUpScreen}} initialStack={authScreenName}/>
+                <Navigator screens={{AuthScreen, ChatsScreen, SignUpScreen, HomeScreen}} initialStack={authScreenName}/>
                 : <AppLoading/>
             }
         </Provider>

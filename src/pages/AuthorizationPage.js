@@ -1,17 +1,18 @@
 import React, {useEffect} from 'react';
 import {Body, Button, Text, Thumbnail, Title} from "native-base";
-import {chatsScreenName} from "../screens/constants";
+import {homeScreenName} from "../screens/constants";
 import * as Google from "expo-google-app-auth";
 import {androidOAuthKey} from '../../config';
 import {connect} from "react-redux";
 import {setAuthCreator, setUserInfoCreator} from "../store/auth/actions";
 import {StyleSheet} from "react-native";
 import mainColor from "../styles";
+import {selectorAuth, selectorUserInfo} from "../store/auth/selectors";
 
 const mapStateToProps = (state) => (
     {
-        auth: state.authState.auth,
-        userInfo: state.authState.userInfo
+        auth: selectorAuth(state),
+        userInfo: selectorUserInfo(state)
     }
 )
 
@@ -41,7 +42,7 @@ function AuthorizationPage(props) {
 
     useEffect(() => {
         if (props.auth){
-            props.navigator.push(chatsScreenName);
+            props.navigator.push(homeScreenName);
         }
     }, [props.auth])
 
