@@ -6,28 +6,22 @@ import mainColor from '../styles';
 export default function DefaultFooter(){
     return (
         <Footer style={styles.footer}>
-            <FooterTab style={{backgroundColor:"white"}}>
+            <FooterTab style={{backgroundColor: mainColor}}>
                 <Button vertical>
-                    <Icon name="md-chatboxes" style={{color: mainColor}} />
-                    <Text style={{color: mainColor}}>Chats</Text>
+                    <Icon name="ios-apps" style={{color: 'white'}}/>
+                    <Text style={{color: 'white'}}>Apps</Text>
                 </Button>
             </FooterTab>
-            <FooterTab style={{backgroundColor: "white"}}>
+            <FooterTab style={{backgroundColor: mainColor}}>
                 <Button vertical>
-                    <Icon name="contact" style={{color: mainColor}} />
-                    <Text style={{color: mainColor}}>Contacts</Text>
+                    <Icon name="home"/>
+                    <Text>Home</Text>
                 </Button>
             </FooterTab>
-            <FooterTab style={{backgroundColor: "white"}}>
+            <FooterTab style={{backgroundColor: mainColor}}>
                 <Button vertical>
-                    <Icon name="home" style={{color: mainColor}} />
-                    <Text style={{color: mainColor}}>Home</Text>
-                </Button>
-            </FooterTab>
-            <FooterTab style={{backgroundColor: "white"}}>
-                <Button vertical>
-                    <Icon name="ios-apps" style={{color: mainColor}} />
-                    <Text style={{color: mainColor}}>Apps</Text>
+                    <Icon name="md-chatboxes"/>
+                    <Text>Chats</Text>
                 </Button>
             </FooterTab>
         </Footer>
