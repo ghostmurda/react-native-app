@@ -1,7 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {List, ListItem, Left, Body, Right, Thumbnail, Text} from "native-base";
+import {selectorActivePage} from "../store/footer/selectors";
+import {setActivePageCreator} from "../store/footer/actions";
+import {connect} from "react-redux";
+import {chatsPage} from "../store/footer/types";
 
-export default function ChatsListPage(){
+const mapStateToProps = (state) => (
+    {
+        activePage: selectorActivePage(state)
+    }
+)
+
+const mapDispatchToProps = (dispatch) => (
+    {
+        setActivePage: (payload) => dispatch(setActivePageCreator(payload))
+    }
+)
+
+function ChatsListPage(props){
+    useEffect(() => {
+        props.setActivePage(chatsPage);
+    }, [])
+
     return (
         <List>
             <ListItem avatar>
@@ -19,3 +39,5 @@ export default function ChatsListPage(){
         </List>
     );
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatsListPage);

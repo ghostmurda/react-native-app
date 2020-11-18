@@ -1,16 +1,30 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Body, Left, ListItem, Text, Thumbnail, List, Icon, Separator, Right, Button} from "native-base";
 import {selectorUserInfo} from "../store/auth/selectors";
 import {connect} from "react-redux";
 import mainColor from "../styles";
+import {selectorActivePage} from "../store/footer/selectors";
+import {setActivePageCreator} from "../store/footer/actions";
+import {homePage} from "../store/footer/types";
 
 const mapStateToProps = (state) => (
     {
-        userInfo: selectorUserInfo(state)
+        userInfo: selectorUserInfo(state),
+        activePage: selectorActivePage(state)
     }
-);
+)
+
+const mapDispatchToProps = (dispatch) => (
+    {
+        setActivePage: (payload) => dispatch(setActivePageCreator(payload))
+    }
+)
 
 function HomePage(props){
+    useEffect(() => {
+        props.setActivePage(homePage);
+    }, [])
+
     return (
         <List>
             <Separator bordered>
@@ -86,4 +100,4 @@ function HomePage(props){
     );
 }
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

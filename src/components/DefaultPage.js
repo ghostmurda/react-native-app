@@ -14,7 +14,7 @@ export default function DefaultPage(props){
             <Content style={{backgroundColor: bgColor}}>
                 {props.isContentHasNav ? React.cloneElement(props.contentPage, {navigator}) : props.contentPage}
             </Content>
-            {props.isFooter && <DefaultFooter />}
+            {props.isFooter && <DefaultFooter navigator={navigator} />}
         </Container>
     );
 }

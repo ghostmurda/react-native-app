@@ -1,7 +1,7 @@
 export const SET_ACTIVE = 'footer/SET_ACTIVE'
-const appsPage = 'appsPage';
-const homePage = 'homePage';
-const chatsPage = 'chatsPage';
+export const appsPage = 'appsPage';
+export const homePage = 'homePage';
+export const chatsPage = 'chatsPage';
 
 export type TActivePage = typeof appsPage | typeof homePage | typeof chatsPage;
 
