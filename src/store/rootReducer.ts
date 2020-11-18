@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux';
-//@ts-ignore
 import {authReducer} from "./auth/reducer";
+import {footerReducer} from "./footer/reducer";
 
 export const rootReducer = combineReducers({
-    authState: authReducer
+    authState: authReducer,
+    footerState: footerReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
