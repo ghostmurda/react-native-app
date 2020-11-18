@@ -1,10 +1,12 @@
-import React from 'react';
-import {Form, Item, Label, Input, Button, Text} from "native-base";
-import {chatsScreenName, signUpScreenName} from "../screens/constants";
+import React, {useEffect} from 'react';
+import {Body, Button, Text, Thumbnail, Title} from "native-base";
+import {chatsScreenName} from "../screens/constants";
 import * as Google from "expo-google-app-auth";
 import {androidOAuthKey} from '../../config';
 import {connect} from "react-redux";
 import {setAuthCreator, setUserInfoCreator} from "../store/auth/actions";
+import {StyleSheet} from "react-native";
+import mainColor from "../styles";
 
 const mapStateToProps = (state) => (
     {
@@ -37,46 +39,52 @@ function AuthorizationPage(props) {
         }
     }
 
+    useEffect(() => {
+        if (props.auth){
+            props.navigator.push(chatsScreenName);
+        }
+    }, [props.auth])
+
     return (
-        <Form style={{
-            backgroundColor: 'white',
-            marginTop: 32,
-            padding: 16,
-            borderRadius: 20,
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 12,
-            },
-            shadowOpacity: 0.7,
-            shadowRadius: 9.51,
-            elevation: 1,
-        }}>
-            <Text style={{
-                textAlign: 'center',
-            }}>
-                🛸 Welcome to this app 🚀
-            </Text>
-            <Item floatingLabel>
-                <Label>ID or email</Label>
-                <Input/>
-            </Item>
-            <Item floatingLabel>
-                <Label>Password</Label>
-                <Input/>
-            </Item>
-            <Button full
-                    bordered
-                    style={{
-                        marginTop: 32,
-                        borderRadius: 20
-                    }}
-                    onPress={() => googleSignIn()}//props.navigator.push(chatsScreenName)}
-            >
+        <Body style={styles.body}>
+            <Thumbnail square large source={require('../assets/logo.png')} />
+            <Title style={styles.title}>OpenApps</Title>
+            <Button primary bordered style={styles.button} onPress={() => googleSignIn()}>
+                <Thumbnail small
+                           source={{uri: "https://img.icons8.com/color/96/000000/google-logo.png"}}
+                           style={{marginLeft: 12}}
+                />
                 <Text>Sign in with Google</Text>
             </Button>
-        </Form>
+        </Body>
     );
 }
+
+const styles = StyleSheet.create({
+    body: {
+        backgroundColor: 'white',
+        marginTop: 32,
+        padding: 16,
+        borderRadius: 20,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.7,
+        shadowRadius: 9.51,
+        elevation: 1,
+        maxHeight: 500
+    },
+    title: {
+        textAlign: 'center',
+        color: mainColor,
+        marginLeft: 2
+    },
+    button: {
+        marginTop: 16,
+        borderRadius: 20,
+    }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthorizationPage);
